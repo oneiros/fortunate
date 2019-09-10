@@ -1,0 +1,25 @@
+{
+  "plugins": [
+    ["prismjs", {
+        "languages": [
+          "markup",
+          "css",
+          "clike",
+          "javascript",
+          "markup-templating",
+          "html",
+          "ruby",
+          "crystal",
+          "erb",
+          "haml",
+          "bash",
+          "python",
+          "scss",
+          "json"
+        ],
+        "plugins": ["line-numbers"],
+        "theme": "tomorrow",
+        "css": true
+    }]
+  ]
+}

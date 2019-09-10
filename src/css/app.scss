@@ -1,0 +1,73 @@
+// Lucky generates 3 folders to help you organize your CSS:
+//
+//    - static/css/variables # Files for colors, spacing, etc.
+//    - static/css/mixins # Put your mixin functions in files here
+//    - static/css/components # CSS for your components
+//
+// Remember to import your new CSS files or they won't be loaded:
+//
+//    @import "./variables/colors" # Imports the file in static/css/variables/_colors.scss
+//
+// Note: importing with `~` tells webpack to look in the installed npm packages
+// https://stackoverflow.com/questions/39535760/what-does-a-tilde-in-a-css-url-do
+
+@import "~normalize-scss/sass/normalize/import-now";
+
+@import "~bootswatch/dist/litera/variables";
+
+$breadcrumb-divider: quote("»");
+
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/litera/bootswatch";
+
+@import "~easymde/dist/easymde.min";
+
+// Add your own components and import them like this:
+//
+// @import "components/my_new_component";
+
+nav.navbar {
+  margin-bottom: 3em;
+}
+
+h1.site-name {
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  a.rss-link {
+    padding-left: 10px;
+    font-size: 2rem;
+  }
+}
+
+nav.post-breadcrumb {
+  ol.breadcrumb {
+    background-color: white;
+    padding: 0.75rem 0rem;
+  }
+}
+
+.post-body {
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+  }
+
+}
+
+h2.post-title {
+  margin-bottom: 0rem;
+}
+
+p.post-metadata {
+  font-size: 80%;
+  margin-bottom: 1rem;
+}
+
+p.post-excerpt {
+  margin-bottom: 2rem;
+}
