@@ -9,7 +9,7 @@ class Authors::Posts::IndexPage < InternalLayout
           h1 "Posts"
         end
         div class: "float-right" do
-          link to: New, class: "btn btn-primary" do
+          link to: New, class: "btn btn-primary", flow_id: "new-post-button" do
             icon "feather-alt"
             text " New Post"
           end
@@ -20,7 +20,7 @@ class Authors::Posts::IndexPage < InternalLayout
     if @drafts.any?
       h2 "Drafts"
 
-      posts_table(@drafts)
+      posts_table(@drafts, name: "drafts")
     end
     if @posts.any?
       h2 "Published Posts"
@@ -29,8 +29,8 @@ class Authors::Posts::IndexPage < InternalLayout
     end
   end
 
-  private def posts_table(posts)
-    table class: "table" do
+  private def posts_table(posts, name = "posts")
+    table class: "table #{name}" do
       tbody do
         posts.each do |post|
           tr do
@@ -44,7 +44,7 @@ class Authors::Posts::IndexPage < InternalLayout
                   text " Edit"
                 end
                 if post.draft?
-                  link to: Publish.with(post), class: "btn btn-sm btn-success" do
+                  link to: Publish.with(post), class: "btn btn-sm btn-success", flow_id: "publish-post-#{post.id}" do
                     icon "paper-plane"
                     text " Publish"
                   end

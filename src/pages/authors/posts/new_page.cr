@@ -17,7 +17,7 @@ class Authors::Posts::NewPage < InternalLayout
         field.textarea rows: 20
       end
 
-      button type: "submit", class: "btn btn-primary", flow_id: "save-post-button" do
+      button type: "submit", class: "btn btn-primary", flow_id: "create-post-button" do
         icon "check"
         text " Save Post"
       end
