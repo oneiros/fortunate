@@ -4,15 +4,6 @@ class AuthenticationFlow < BaseFlow
   def initialize(@email : String)
   end
 
-  def sign_up(password)
-    visit SignUps::New
-    fill_form SignUpUser,
-      email: email,
-      password: password,
-      password_confirmation: password
-    click "@sign-up-button"
-  end
-
   def sign_out
     visit Me::Show
     sign_out_button.click

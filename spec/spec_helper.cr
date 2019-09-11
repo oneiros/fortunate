@@ -18,3 +18,21 @@ include LuckyFlow::Expectations
 
 Avram::Migrator::Runner.new.ensure_migrated!
 Habitat.raise_if_missing_settings!
+
+class LuckyFlow::Server
+
+  private def start_session
+    driver = Selenium::Webdriver.new
+    Selenium::Session.new(driver, capabilities)
+  rescue e : Errno
+    retry_start_session(e)
+  end
+
+  private def capabilities
+    CAPABILITIES.merge({
+      chromeOptions: {
+        args:   ["no-sandbox", "headless", "disable-gpu", "window-size=1400,960"]
+      }
+    })
+  end
+end
