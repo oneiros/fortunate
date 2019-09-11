@@ -14,4 +14,10 @@ class Post < BaseModel
   def draft?
     published_at.nil?
   end
+
+  def excerpt
+    document = Markd::Parser.parse(body)
+    renderer = Markd::ExcerptRenderer.new
+    renderer.render(document)
+  end
 end

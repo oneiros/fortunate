@@ -6,6 +6,18 @@ class Users::Posts::ShowPage < MainLayout
     "#{@post.title} - #{super}"
   end
 
+  def header
+    mount Shared::LayoutHead.new(page_title, @context) do
+      meta property: "og:title", content: @post.title
+      meta property: "og:url", content: canonical_url
+      meta property: "og:type", content: "article"
+      meta property: "og:site_name", content: Fortunate.settings.site_name
+      meta property: "og:description", content: @post.excerpt
+      meta property: "og:article:published_time", content: @post.published_at.to_s
+      meta property: "og:article:author", content: @user.name
+    end
+  end
+
   def content
     nav class: "post-breadcrumb", aria_label: "breadcrumb" do
       ol class: "breadcrumb" do
@@ -33,5 +45,9 @@ class Users::Posts::ShowPage < MainLayout
     div class: "post-body" do
       raw Markd.to_html(@post.body)
     end
+  end
+
+  private def canonical_url
+    Users::Posts::Show.with(handle: @user.handle, slug: @post.slug).url
   end
 end

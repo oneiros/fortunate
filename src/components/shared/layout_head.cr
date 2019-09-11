@@ -9,6 +9,13 @@ class Shared::LayoutHead < BaseComponent
     end
   end
 
+  def render
+    head do
+      base_headers
+      yield
+    end
+  end
+
   private def base_headers
     utf8_charset
     title @page_title

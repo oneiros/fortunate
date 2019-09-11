@@ -17,7 +17,7 @@ abstract class FeedLayout < MainLayout
         link post.user.name, Users::Show.with(handle: post.user.handle)
       end
       para class: "post-excerpt" do
-        raw render_excerpt(post)
+        raw post.excerpt
         raw "&hellip; "
         link "Read more", to: Users::Posts::Show.with(handle: post.user.handle, slug: post.slug)
       end
@@ -29,10 +29,4 @@ abstract class FeedLayout < MainLayout
   end
 
   private abstract def feed_url : String
-
-  private def render_excerpt(post)
-    document = Markd::Parser.parse(post.body)
-    renderer = Markd::ExcerptRenderer.new
-    renderer.render(document)
-  end
 end
