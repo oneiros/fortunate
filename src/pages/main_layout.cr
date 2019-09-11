@@ -19,17 +19,9 @@ abstract class MainLayout
       header
 
       body do
-        main class: "container-fluid" do
+        main class: "container public" do
           mount Shared::FlashMessages.new(@context.flash)
-          div class: "row" do
-            div class: "col" do
-            end
-            div class: "col-4" do
-              content
-            end
-            div class: "col" do
-            end
-          end
+          content
         end
       end
     end
