@@ -31,7 +31,7 @@ class Shared::Field(T) < BaseComponent
       field_classes = "form-control"
       field_classes = "#{field_classes} is-invalid" unless @field.valid?
 
-      with_defaults field: @field, class: "form-control" do |input_builder|
+      with_defaults field: @field, class: field_classes do |input_builder|
         yield input_builder
       end
 

@@ -2,8 +2,12 @@ class SignIns::NewPage < AuthLayout
   needs operation : SignInUser
 
   def content
-    h1 "Sign In"
-    render_sign_in_form(@operation)
+    div class: "card login-form" do
+      h3 "Sign In", class: "card-header"
+      div class: "card-body" do
+        render_sign_in_form(@operation)
+      end
+    end
   end
 
   private def render_sign_in_form(op)

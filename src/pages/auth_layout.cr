@@ -19,9 +19,17 @@ abstract class AuthLayout
       mount Shared::LayoutHead.new(page_title: page_title, context: @context)
 
       body do
-        div class: "container" do
-          mount Shared::FlashMessages.new(@context.flash)
-          content
+        main class: "container" do
+          div class: "row" do
+            div class: "col-sm" do
+            end
+            div class: "col-sm" do
+              mount Shared::FlashMessages.new(@context.flash)
+              content
+            end
+            div class: "col-sm" do
+            end
+          end
         end
       end
     end

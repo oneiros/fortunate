@@ -4,7 +4,7 @@ class Shared::FieldErrors(T) < BaseComponent
   # Customize the markup and styles to match your application
   def render
     unless @field.valid?
-      div class: "error" do
+      div class: "invalid-feedback" do
         label_text = Wordsmith::Inflector.humanize(@field.name.to_s)
         text "#{label_text} #{@field.errors.first}"
       end
