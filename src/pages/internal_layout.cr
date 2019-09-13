@@ -50,7 +50,7 @@ abstract class InternalLayout
   end
 
   private def render_signed_in_user
-    link @current_user.email, to: Me::Show
+    link @current_user.email, to: Me::Edit
     text " "
     link to: SignIns::Delete, class: "btn btn-light", flow_id: "sign-out-button" do
       icon "sign-out-alt"
