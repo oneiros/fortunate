@@ -36,9 +36,7 @@ abstract class InternalLayout
                   link "Posts", to: Authors::Posts::Index, class: "nav-link"
                 end
               end
-              span class: "navbar-text" do
-                render_signed_in_user
-              end
+              render_signed_in_user
             end
           end
           mount Shared::FlashMessages.new(@context.flash)
@@ -50,9 +48,12 @@ abstract class InternalLayout
   end
 
   private def render_signed_in_user
-    link @current_user.email, to: Me::Edit
-    text " "
-    link to: SignIns::Delete, class: "btn btn-light", flow_id: "sign-out-button" do
+    span class: "navbar-text mr-2" do
+      text "Signed in as "
+      link @current_user.email, to: Me::Edit
+      text " "
+    end
+    link to: SignIns::Delete, class: "btn btn-outline-secondary", flow_id: "sign-out-button" do
       icon "sign-out-alt"
       text " Sign out"
     end
