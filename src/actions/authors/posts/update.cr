@@ -7,7 +7,7 @@ class Authors::Posts::Update < BrowserAction
         flash.success = "Post was updated successfully."
         redirect to: Index
       else
-        render EditPage, post: post, update_operation: operation
+        html EditPage, post: post, update_operation: operation
       end
     end
   end

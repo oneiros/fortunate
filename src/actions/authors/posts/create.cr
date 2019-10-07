@@ -5,7 +5,7 @@ class Authors::Posts::Create < BrowserAction
         flash.success = "Post was successfully created as draft."
         redirect to: Index
       else
-        render NewPage, operation: operation
+        html NewPage, operation: operation
       end
     end
   end

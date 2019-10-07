@@ -14,13 +14,14 @@ require "../db/migrations/**"
 require "./setup/**"
 
 include Carbon::Expectations
+include Lucky::RequestExpectations
 include LuckyFlow::Expectations
 
 Avram::Migrator::Runner.new.ensure_migrated!
+Avram::SchemaEnforcer.ensure_correct_column_mappings!
 Habitat.raise_if_missing_settings!
 
 class LuckyFlow::Server
-
   private def start_session
     driver = Selenium::Webdriver.new
     Selenium::Session.new(driver, capabilities)

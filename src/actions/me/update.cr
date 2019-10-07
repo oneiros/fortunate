@@ -5,7 +5,7 @@ class Me::Update < BrowserAction
         flash.success = "Account was updated successfully."
         redirect to: Authors::Posts::Index
       else
-        render EditPage, user: user, update_operation: operation
+        html EditPage, user: user, update_operation: operation
       end
     end
   end

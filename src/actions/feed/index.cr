@@ -5,15 +5,15 @@ class Feed::Index < FeedAction
     render_rss(posts)
   end
 
-  private def link
+  private def link : String
     Home::Index.url
   end
 
-  private def title
+  private def title : String
     Fortunate.settings.site_name
   end
 
-  private def description
+  private def description : String
     "A fortunate blog."
   end
 end

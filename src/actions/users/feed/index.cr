@@ -9,7 +9,7 @@ class Users::Feed::Index < FeedAction
     render_rss(posts)
   end
 
-  private def link
+  private def link : String
     user = @user
     if user
       Users::Feed::Index.with(handle: user.handle).url
@@ -18,11 +18,11 @@ class Users::Feed::Index < FeedAction
     end
   end
 
-  private def title
+  private def title : String
     "Posts by #{@user.try(&.name)}"
   end
 
-  private def description
+  private def description : String
     "A fortunate blog."
   end
 end

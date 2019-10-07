@@ -1,5 +1,7 @@
 abstract class BrowserAction < Lucky::Action
   include Lucky::ProtectFromForgery
+  accepted_formats [:html, :json], default: :html
+
   # This module provides current_user, sign_in, and sign_out methods
   include Authentic::ActionHelpers(User)
 
@@ -23,6 +25,6 @@ abstract class BrowserAction < Lucky::Action
 
   # This method tells Authentic how to find the current user
   private def find_current_user(id) : User
-    UserQuery.find(id)
+    UserQuery.new.id(id).first
   end
 end

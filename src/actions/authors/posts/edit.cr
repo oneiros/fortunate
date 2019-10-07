@@ -3,6 +3,6 @@ class Authors::Posts::Edit < BrowserAction
     post = PostQuery.new.by(current_user).find(post_id)
     update_operation = UpdatePost.new(post)
 
-    render EditPage, post: post, update_operation: update_operation
+    html EditPage, post: post, update_operation: update_operation
   end
 end

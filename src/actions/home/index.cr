@@ -4,6 +4,6 @@ class Home::Index < BrowserAction
   get "/" do
     posts = PostQuery.new.preload_user.published.latest_first
 
-    render IndexPage, posts: posts
+    html IndexPage, posts: posts
   end
 end

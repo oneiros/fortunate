@@ -1,4 +1,6 @@
 abstract class FeedAction < Lucky::Action
+  accepted_formats [:rss]
+
   private abstract def link : String
   private abstract def title : String
   private abstract def description : String

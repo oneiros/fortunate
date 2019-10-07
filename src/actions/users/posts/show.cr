@@ -5,6 +5,6 @@ class Users::Posts::Show < BrowserAction
     user = UserQuery.new.handle.eq(handle).first
     post = PostQuery.new.by(user).slug.eq(slug).first
 
-    render ShowPage, user: user, post: post
+    html ShowPage, user: user, post: post
   end
 end

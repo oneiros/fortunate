@@ -2,7 +2,7 @@ class Home::IndexPage < FeedLayout
   def content
     h1 class: "site-name" do
       text Fortunate.settings.site_name
-      link to: Feed::Index, class: "rss-link" do
+      link to: Feed::Index, class: "rss-link", data_turbolinks: false do
         icon "rss"
       end
     end

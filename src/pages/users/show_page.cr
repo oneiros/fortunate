@@ -15,7 +15,7 @@ class Users::ShowPage < FeedLayout
 
     h1 class: "site-name" do
       text "Posts by #{@user.name}"
-      link to: Feed::Index.with(handle: @user.handle), class: "rss-link" do
+      link to: Feed::Index.with(handle: @user.handle), class: "rss-link", data_turbolinks: false do
         icon "rss"
       end
     end
