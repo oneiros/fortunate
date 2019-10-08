@@ -24,6 +24,18 @@ module Markd
     def html_block(node : Node, entering : Bool)
     end
 
+    def emphasis(node : Node, entering : Bool)
+      super if @visible
+    end
+
+    def strong(node : Node, entering : Bool)
+      super if @visible
+    end
+
+    def code(node : Node, entering : Bool)
+      super if @visible
+    end
+
     def paragraph(node : Node, entering : Bool)
       if @paragraph_count == 0
         @visible = entering
