@@ -15,7 +15,7 @@ class Db::CreateSampleSeeds < LuckyCli::Task
       end
 
       one_day = Time::Span.new(days: 1, hours: 0, minutes: 0, seconds: 0)
-      now = Time.now
+      now = Time.local
       two_days_ago = now - one_day - one_day
       PostBox.create do |post|
         post.title("First Post")
