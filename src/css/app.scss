@@ -79,3 +79,10 @@ main.container.public {
 .card.login-form {
   margin-top: 2rem;
 }
+
+p > code {
+  background-color: #2d2d2d;
+  color: #ccc;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  padding: 4px 12px;
+}
