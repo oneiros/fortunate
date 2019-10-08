@@ -30,7 +30,7 @@ dependencies:
 
   markd:
     github: icyleaf/markd
-    branch: master
+    version: ~> 0.2.0
 
   cryss:
     github: xeals/cryss
