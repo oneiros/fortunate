@@ -4,7 +4,7 @@ class Authors::Posts::IndexPage < InternalLayout
 
   def content
     div class: "row" do
-      div class: "col" do
+      div class: "col mb-4" do
         div class: "float-left" do
           h1 "Posts"
         end
@@ -30,14 +30,19 @@ class Authors::Posts::IndexPage < InternalLayout
   end
 
   private def posts_table(posts, name = "posts")
-    table class: "table #{name}" do
+    table class: "table table-hover #{name}" do
       tbody do
         posts.each do |post|
           tr do
             td do
               text post.title
             end
-            td do
+            if name == "posts"
+              td do
+                text post.published_at.to_s
+              end
+            end
+            td class: "actions" do
               div class: "btn-group" do
                 link to: Edit.with(post), class: "btn btn-sm btn-primary" do
                   icon "edit"
