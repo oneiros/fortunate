@@ -17,7 +17,7 @@
           "scss",
           "json"
         ],
-        "plugins": ["line-numbers"],
+        "plugins": ["line-numbers", "copy-to-clipboard"],
         "theme": "tomorrow",
         "css": true
     }]
