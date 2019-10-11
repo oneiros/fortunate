@@ -18,7 +18,11 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Install dependencies
+    - name: Install crystal dependencies
       run: shards install
+    - name: Install JS dependencies
+      run: yarn install
+    - name: Compile Assets
+      run: yarn dev
     - name: Run tests
       run: crystal spec
