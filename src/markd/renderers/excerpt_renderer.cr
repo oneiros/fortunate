@@ -21,6 +21,9 @@ module Markd
     def image(node : Node, entering : Bool)
     end
 
+    def link(node : Node, entering : Bool)
+    end
+
     def html_block(node : Node, entering : Bool)
     end
 
