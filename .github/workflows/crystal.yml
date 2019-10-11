@@ -20,8 +20,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Setup crystal repo
       run: curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
-    - name: Install crystal
-      run: sudo apt install crystal
+    - name: Install crystal and system dependencies
+      run: sudo apt install crystal libyaml-dev
     - name: Install crystal dependencies
       run: shards install
     - name: Install JS dependencies
