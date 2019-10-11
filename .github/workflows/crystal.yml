@@ -13,11 +13,15 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    container:
-      image: crystallang/crystal
+#    container:
+#      image: crystallang/crystal
     
     steps:
     - uses: actions/checkout@v1
+    - name: Setup crystal repo
+      run: curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
+    - name: Install crystal
+      run: sudo apt install crystal
     - name: Install crystal dependencies
       run: shards install
     - name: Install JS dependencies
