@@ -16,8 +16,15 @@ jobs:
 #    container:
 #      image: crystallang/crystal
     
+    env:
+      DATABASE_URL: "postgres://fortunate@localhost:5432/fortunate_test"
+    
     steps:
     - uses: actions/checkout@v1
+    - uses: harmon758/postgresql-action@v1
+      with:
+        postgresql db: fortunate_test
+        postgresql user: fortunate
     - name: Setup crystal repo
       run: curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
     - name: Install crystal and system dependencies
