@@ -15,7 +15,8 @@
           "bash",
           "python",
           "scss",
-          "json"
+          "json",
+          "yaml"
         ],
         "plugins": ["line-numbers", "copy-to-clipboard"],
         "theme": "tomorrow",
