@@ -16,15 +16,21 @@ jobs:
 #    container:
 #      image: crystallang/crystal
     
-    env:
-      DATABASE_URL: "postgres://fortunate@localhost:5432/fortunate_test"
-    
+    services:
+      postgres:
+        image: postgres:10.10
+        env:
+          POSTGRES_USER: fortunate
+          POSTGRES_PASSWORD: fortunate
+          POSTGRES_DB: fortunate_test
+        ports:
+        # will assign a random free host port
+        - 5432/tcp
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+            
     steps:
     - uses: actions/checkout@v1
-    - uses: harmon758/postgresql-action@v1
-      with:
-        postgresql db: fortunate_test
-        postgresql user: fortunate
     - name: Setup crystal repo
       run: curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
     - name: Install crystal and system dependencies
@@ -37,3 +43,5 @@ jobs:
       run: yarn dev
     - name: Run tests
       run: crystal spec
+      env:
+        DATABASE_URL: "postgres://fortunate:fortunate@localhost:${{ job.services.postgres.ports['5432'] }}/fortunate_test"
