@@ -2,21 +2,14 @@
   "plugins": [
     ["prismjs", {
         "languages": [
-          "markup",
-          "css",
-          "clike",
           "javascript",
-          "markup-templating",
           "html",
-          "ruby",
-          "crystal",
-          "erb",
-          "haml",
           "bash",
-          "python",
           "scss",
           "json",
-          "yaml"
+          "yaml",
+          "ruby",
+          "crystal"
         ],
         "plugins": ["line-numbers", "copy-to-clipboard"],
         "theme": "tomorrow",
