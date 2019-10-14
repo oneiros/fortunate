@@ -18,6 +18,9 @@ module Markd
     def list(node : Node, entering : Bool)
     end
 
+    def item(node : Node, entering : Bool)
+    end
+
     def image(node : Node, entering : Bool)
     end
 
